@@ -92,6 +92,25 @@ config INSPACE_FAKE_ACCEL_MAX_BATCH
 	---help---
 		The maximum batch size of sensor measurements
 
+config INSPACE_FAKE_GNSS
+	bool "Fake GNSS Sensor"
+	default n
+	---help---
+		Create a fakesensor for GNSS data
+config INSPACE_FAKE_GNSS_FILENAME
+	string "Fake GNSS Sensor Input File"
+	depends on INSPACE_FAKE_GNSS
+	default "/inspace/gnss.csv"
+	---help---
+		The file to read fake GNSS data from
+
+config INSPACE_FAKE_GNSS_MAX_BATCH
+	int "The maximum batch size of this sensor"
+	depends on INSPACE_FAKE_GNSS
+	default 1
+	---help---
+		The maximum batch size of sensor measurements
+
 config INSPACE_FAKE_GYRO
 	bool "Fake Gyroscope Sensor"
 	default n
