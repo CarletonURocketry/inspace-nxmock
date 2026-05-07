@@ -1,4 +1,4 @@
-interval:10
+interval:94
 X (m/s^2),Y (m/s^2),Z (m/s^2),temp (degrees c) (not used by fakesensor)
 9.74,-0.67,-0.17,19.55
 9.82,-0.67,-0.17,19.54
