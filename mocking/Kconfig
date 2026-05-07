@@ -132,6 +132,25 @@ config INSPACE_FAKE_MAG_MAX_BATCH
 	---help---
 		The maximum batch size of sensor measurements
 
+config INSPACE_FAKE_GNSS
+	bool "Fake GNSS Sensor"
+	default n
+	---help---
+		Create a fakesensor for gnss data
+
+config INSPACE_FAKE_GNSS_FILENAME
+	string "Fake GNSS Sensor Input File"
+	depends on INSPACE_FAKE_GNSS
+	default "/inspace/gnss.csv"
+	---help---
+		The file to read fake magnetometer data from
+
+config INSPACE_FAKE_GNSS_MAX_BATCH
+	int "The maximum batch size of this sensor"
+	depends on INSPACE_FAKE_GNSS
+	default 1
+	---help---
+		The maximum batch size of sensor measurements
 endmenu # Faked Sensors
 
 endif # SENSORS_FAKESENSOR

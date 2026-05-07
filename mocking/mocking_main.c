@@ -100,6 +100,16 @@ int register_fakesensors(void) {
         return ret;
     }
 #endif
+
+#if defined(CONFIG_INSPACE_FAKE_GNSS)
+    printf("Mounting a fake GNSS sensor with csv %s\n", CONFIG_INSPACE_FAKE_GNSS_FILENAME);
+    ret = fakesensor_init(SENSOR_TYPE_GNSS, CONFIG_INSPACE_FAKE_GNSS_FILENAME, 0,
+                          CONFIG_INSPACE_FAKE_GNSS_MAX_BATCH);
+    if (ret < 0) {
+        fprintf(stderr, "ERROR: fakesensor_init() failed: %d\n", ret);
+        return ret;
+    }
+#endif
     return ret;
 }
 
