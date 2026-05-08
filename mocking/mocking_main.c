@@ -36,7 +36,7 @@ int mount_mock_fs(void) {
     desc.minor = CONFIG_MOCKING_ROMFS_DEVNO;         /* Minor device number of the ROM disk. */
     desc.nsectors = NSECTORS(data_img_len);          /* The number of sectors in the ROM disk */
     desc.sectsize = CONFIG_MOCKING_ROMFS_SECTORSIZE; /* The size of one sector in bytes */
-    desc.image = (uint8_t *)data_img;                /* File system image */
+    desc.image = (uint8_t *)(uintptr_t)data_img;                /* File system image */
 
     ret = boardctl(BOARDIOC_ROMDISK, (uintptr_t)&desc);
     if (ret < 0) {
